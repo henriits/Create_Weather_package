@@ -54,6 +54,7 @@ class Weather:
             raise SystemExit(f"Error in URL \n {e}")
 
     def next_12h(self):
+        """returns 3-hour data"""
         return self.data["list"][:4]
 
     def next_12h_simplified(self):
