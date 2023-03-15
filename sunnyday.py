@@ -8,10 +8,15 @@ api = "b757238a027a9ba7413a3786589d37f2"
 
 class Weather:
 
-    def __init__(self, apikey, city, lat=None, lon=None):
-        url = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&APPID={apikey}&units=imperial"
-        r = requests.get(url)
-        self.data = r.json()
+    def __init__(self, apikey, city=None, lat=None, lon=None):
+        if city:
+            url = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&APPID={apikey}&units=imperial"
+            r = requests.get(url)
+            self.data = r.json()
+        elif lat and lon:
+            url = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&APPID={apikey}&units=imperial"
+            r = requests.get(url)
+            self.data = r.json()
 
     def next_12h(self):
         return self.data
