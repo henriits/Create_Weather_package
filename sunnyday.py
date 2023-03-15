@@ -66,5 +66,6 @@ class Weather:
         return simple_data
 
 
-weather = Weather(apikey="b757238a027a9ba7413a3786589d37f2", lat=5.3, lon=42.2)
-print(weather.next_12h_simplified())
+if __name__ == "__main__":
+    weather = Weather(apikey="b757238a027a9ba7413a3786589d37f2", lat=5.3, lon=42.2)
+    print(weather.next_12h_simplified())
